@@ -4,5 +4,5 @@ export interface bodyDto {
     maxLength: number
     numberWords: number
     exclusions: string[]
-    rewrites: string[]
+    rewrites: { }
 }

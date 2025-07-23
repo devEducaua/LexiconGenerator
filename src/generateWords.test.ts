@@ -8,9 +8,14 @@ describe("GenerateWords", () => {
 
     const numberWords = 20;
     const maxLength = 5
+    const exclusions: string[] = [ 'ti', 'ki' ]
+    const rewrites = {
+        "mn": "m",
+        "nn": "n"
+    } 
 
     it("should generate the correct number of words", () => {
-        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength };
+        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength, rewrites: rewrites, exclusions: exclusions };
         const gen = new GenerateWords(dto);
         const words = gen.getWords();
 
@@ -19,7 +24,7 @@ describe("GenerateWords", () => {
     })
 
     it("should generate words with maximum of syllables determined", () => {
-        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength };
+        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength, rewrites: rewrites, exclusions: exclusions };
         const gen = new GenerateWords(dto);
         const words = gen.getWords();
 
@@ -28,4 +33,8 @@ describe("GenerateWords", () => {
         })
 
     })
+
+    // test for rewrites
+    //
+    // test for exclusions
 });

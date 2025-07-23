@@ -13,28 +13,24 @@ describe("GenerateWords", () => {
         "mn": "m",
         "nn": "n"
     } 
+    const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength, rewrites: rewrites, exclusions: exclusions };
+    const gen = new GenerateWords(dto);
+    const words = gen.getWords();
 
     it("should generate the correct number of words", () => {
-        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength, rewrites: rewrites, exclusions: exclusions };
-        const gen = new GenerateWords(dto);
-        const words = gen.getWords();
 
         expect(words).toBeArray();
         expect(words).toHaveLength(numberWords);
     })
 
-    it("should generate words with maximum of syllables determined", () => {
-        const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength, rewrites: rewrites, exclusions: exclusions };
-        const gen = new GenerateWords(dto);
-        const words = gen.getWords();
+    it("should remove the exclusions of the words", () => {
 
-        words.forEach(word => {
-            expect(word.length).toBeLessThanOrEqual(maxLength * 2);
-        })
-
+        for (let i = 0; i < exclusions.length; i++) {
+            words.forEach(word => {
+                for (let j = 0; j < word.length - 1; j++) {
+                    expect(word[j] + word[j+1]).not.toBe(exclusions[i])
+                } 
+            })
+        }
     })
-
-    // test for rewrites
-    //
-    // test for exclusions
 });

@@ -3,4 +3,6 @@ export interface bodyDto {
     vowels: string[]
     maxLength: number
     numberWords: number
+    exclusions: string[]
+    rewrites: { }
 }

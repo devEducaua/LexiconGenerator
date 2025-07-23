@@ -24,6 +24,11 @@ ex:
     vowels: [ "a", "i", "u" ],
     numberWords: 100,
     maxLength: 10
+    exclusions: [ "ti", "ki" ],
+    rewrites: {
+        "nn": "n",
+        "mn": "m"
+    }
 }
 ```
 

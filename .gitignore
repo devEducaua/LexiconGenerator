@@ -1,8 +1,6 @@
 # dependencies (bun install)
 node_modules
 
-plan.md
-
 # output
 out
 dist

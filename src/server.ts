@@ -1,18 +1,11 @@
-import { Hono } from "hono";
+import { Hono } from "hono/tiny";
 import wordsController from "./wordsController";
 
-const app = new Hono();
-
-// app.post('/', async (c) => {
-//     return await wordsController(c);
-// });
+const app = new Hono().basePath("/api");;
 
 app.post('/', (c) => wordsController(c));
 
-const port = 8080;
-console.log(`Server running in ${port}`)
-
 export default {
-    port,
+    port: 8080,
     fetch: app.fetch
 };

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 import { bodyDto } from "./bodyDto";
-import GenerateWords from "./GenerateWords";
+import GenerateWords from "./generateWords";
 
 describe("GenerateWords", () => {
     const con: string[] = ['p', 't', 'k', 's', 'm', 'n', 'l'];
@@ -8,7 +8,6 @@ describe("GenerateWords", () => {
 
     const numberWords = 20;
     const maxLength = 5
-
 
     it("should generate the correct number of words", () => {
         const dto: bodyDto = { consonants: con, vowels: vow, numberWords: numberWords, maxLength: maxLength };

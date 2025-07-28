@@ -9,5 +9,9 @@
         "esModuleInterop": true,
          "skipLibCheck": true
     },
+    "exclude": [
+        "node_modules",
+        "test"
+    ],
     "include": ["src"]
 }

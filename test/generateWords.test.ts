@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
-import { bodyDto } from "./bodyDto";
-import GenerateWords from "./generateWords";
+import { bodyDto } from "../src/bodyDto";
+import GenerateWords from "../src/generateWords";
 
 describe("GenerateWords", () => {
     const con: string[] = ['p', 't', 'k', 's', 'm', 'n', 'l'];

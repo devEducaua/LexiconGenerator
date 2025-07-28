@@ -1,0 +1,8 @@
+{
+    "consonants": [ "p", "t", "k", "l", "m", "n", "s" ],
+    "vowels": [ "a", "i", "u" ],
+    "numberWords": 30,
+    "maxLength": 4,
+    "exclusions": [ "ti" ],
+    "struct": "(C)V(C)(C)"
+}

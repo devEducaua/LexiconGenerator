@@ -1,5 +1,6 @@
-import { Hono } from "hono/tiny";
-import wordsController from "./wordsController";
+import { Hono } from "hono";
+
+import wordsController from "./web/wordsController";
 
 const app = new Hono().basePath("/api");;
 

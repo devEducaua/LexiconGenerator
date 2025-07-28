@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "bun run dist/server.js",
-    "start:dev": "bun run --watch --hot src/server.ts",
+    "dev": "bun run --watch --hot src/server.ts",
     "test": "bun test",
     "build": "tsc"
   },

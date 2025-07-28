@@ -1,5 +1,5 @@
 
-type letterType =  { [index: string]: boolean};
+export type letterType =  { [index: string]: boolean};
 
 export default function parseStruct(struct: string): letterType[] {
     struct = struct.toUpperCase();

@@ -35,13 +35,5 @@ export default function generateSyllable(consonants: string[], vowels: string[],
         }
     }
 
-
     return syllable
 }
-
-const c = [ 'p', 't', 'k', 'm', 'n', 'l', 's' ];
-const v = [ 'a', 'i', 'u' ];
-const e = [ 'ti' ];
-
-const r = generateSyllable(c, v, e, "CVC");
-console.log(r);

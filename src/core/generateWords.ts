@@ -1,20 +1,14 @@
 import { bodyDto } from "../web/bodyDto";
-import genSyllable from "./generateSyllables";
+import generateSyllable from "./generateSyllables";
 
-export default function generateWords(dto: bodyDto): string[] {
-    const outputArr: string[] = [];
+export default function generateWords(dto: bodyDto) {
     const { consonants, vowels, numberWords, maxLength, exclusions, struct } = dto;
 
-    for (let i = 0; i < numberWords; i++) {
+    return Array.from({ length: numberWords } , () => {
         const numSyllables: number = Math.floor(Math.random() * maxLength) + 1;
 
-        let word: string = "";
-
-        for (let j = 0; j < numSyllables; j++) {
-            word += genSyllable(consonants, vowels, exclusions, struct);
-        }
-
-        outputArr.push(word);
-    }
-    return outputArr;
+        return Array.from({ length: numSyllables }, () => 
+            generateSyllable(consonants, vowels, exclusions, struct)
+        ).join("");
+    });
 }

@@ -5,7 +5,6 @@ export default function parseStruct(struct: string): letterType[] {
     struct = struct.toUpperCase();
     const letters: string[] = struct.split("");
 
-
     const output: letterType[] = []
 
     for (let i = 0; i < letters.length; i++) {

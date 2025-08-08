@@ -3,9 +3,9 @@ import generateWords from "../core/generateWords";
 import { bodyDto } from "./bodyDto";
 
 async function wordsController(c: Context) {
-    const { consonants, vowels, numberWords, maxLength, exclusions, struct, rewrites } = await c.req.json();
+    const { consonants, vowels, numberWords, maxLength, minLength, exclusions, struct, rewrites } = await c.req.json();
 
-    const dto: bodyDto = { consonants, vowels, numberWords, maxLength, exclusions, struct, rewrites };
+    const dto: bodyDto = { consonants, vowels, numberWords, maxLength, minLength, exclusions, struct, rewrites };
 
     const words: string[] = generateWords(dto);
 

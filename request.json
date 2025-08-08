@@ -3,6 +3,7 @@
     "vowels": [ "a", "i", "u" ],
     "numberWords": 30,
     "maxLength": 4,
+    "minLength": 1,
     "exclusions": [ "ti" ],
     "struct": "(C)V(C)",
     "rewrites": {

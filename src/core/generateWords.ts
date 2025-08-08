@@ -4,10 +4,10 @@ import applyRewrites from "./rewrites";
 
 export default function generateWords(dto: bodyDto): string[] {
     const outputArr: string[] = [];
-    const { consonants, vowels, numberWords, maxLength, exclusions, struct, rewrites } = dto;
+    const { consonants, vowels, numberWords, maxLength, minLength, exclusions, struct, rewrites } = dto;
 
     for (let i = 0; i < numberWords; i++) {
-        const numSyllables: number = Math.floor(Math.random() * maxLength) + 1;
+        const numSyllables: number = Math.floor(Math.random() * (maxLength + minLength + 1)) + minLength;
 
         let word: string = "";
 

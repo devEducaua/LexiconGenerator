@@ -32,11 +32,12 @@ ex:
 {
     "consonants": [ "p", "t", "k", "l", "m", "n", "s" ],
     "vowels": [ "a", "i", "u" ],
-    "numberWords": 30,
-    "maxLength": 4,
-    "exclusions": [ "ku" ],
-    "struct": "(C)V(C)"
-    "rewrites": {
+    "numberWords": 30,      // Number of Words to generate
+    "maxLength": 4,         // Max number of syllables for word
+    "minLength": 1,         // Min number of syllables for word
+    "exclusions": [ "ku" ], // Syllables for no generate
+    "struct": "(C)V(C)"     // Struct C -> consonant, V -> vowels. () -> optional
+    "rewrites": {           // Syllables for substitute for others
         "aa": "a",
         "ee": "e",
         "ii": "i",

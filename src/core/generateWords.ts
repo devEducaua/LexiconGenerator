@@ -1,9 +1,10 @@
 import { bodyDto } from "../web/bodyDto";
 import genSyllable from "./generateSyllables";
+import applyRewrites from "./rewrites";
 
 export default function generateWords(dto: bodyDto): string[] {
     const outputArr: string[] = [];
-    const { consonants, vowels, numberWords, maxLength, exclusions, struct } = dto;
+    const { consonants, vowels, numberWords, maxLength, exclusions, struct, rewrites } = dto;
 
     for (let i = 0; i < numberWords; i++) {
         const numSyllables: number = Math.floor(Math.random() * maxLength) + 1;
@@ -13,6 +14,8 @@ export default function generateWords(dto: bodyDto): string[] {
         for (let j = 0; j < numSyllables; j++) {
             word += genSyllable(consonants, vowels, exclusions, struct);
         }
+
+        word = applyRewrites(rewrites, word);
 
         outputArr.push(word);
     }

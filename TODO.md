@@ -1,3 +1,3 @@
 - [ ] Reimplemented Rewrites, still only works inside of the syllable
 - [ ] Reformulate exclusions to perform outside of the syllables
-- [ ] Add more opts to struct: code e etc
+- [ ] Add more opts to struct: coda, onset etc

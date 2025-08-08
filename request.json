@@ -4,5 +4,12 @@
     "numberWords": 30,
     "maxLength": 4,
     "exclusions": [ "ti" ],
-    "struct": "(C)V(C)(C)"
+    "struct": "(C)V(C)",
+    "rewrites": {
+        "aa": "a",
+        "ee": "e",
+        "ii": "i",
+        "oo": "o",
+        "uu": "u"
+    }
 }

@@ -1,16 +1,13 @@
 import parseStruct from "./parseStruct";
 
 export default function generateSyllable(consonants: string[], vowels: string[], exclusions: string[], struct: string): string {
-    const parsed = parseStruct(struct);
+    const parsed: Map<string, boolean> = parseStruct(struct);
 
     let syllable: string = "";
 
-    for (let i = 0; i < parsed.length; i++) {
-        const keys = Object.keys(parsed[i]);
-        const values = Object.values(parsed[i]);
-
-        if (keys[0] == "V") {
-            if (values[0] == true) {
+    for (const [key, value] of parsed) {
+        if (key == "V") {
+            if (value == true) {
                 syllable += vowels[Math.floor(Math.random() * vowels.length)];
             } else {
                 if (Math.floor(Math.random() * 10) >= 5) {
@@ -18,8 +15,8 @@ export default function generateSyllable(consonants: string[], vowels: string[],
                 }
             }
         }
-        else if (keys[0] == "C") {
-            if (values[0] == true) {
+        else if (key == "C") {
+            if (value == true) {
                 syllable += consonants[Math.floor(Math.random() * consonants.length)];
             } else {
                 if (Math.floor(Math.random() * 10) >= 5) {

@@ -6,5 +6,5 @@ export interface bodyDto {
     numberWords: number;
     exclusions: string[];
     struct: string;
-    rewrites: {[index: string]: string};
+    rewrites: Map<string, string>;
 }

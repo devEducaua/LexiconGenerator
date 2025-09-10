@@ -1,15 +1,16 @@
 import { describe, expect, it } from "bun:test";
-import parseStruct, { letterType } from "../src/core/parseStruct";
+import parseStruct from "../src/core/parseStruct";
 
 describe("parse struct", () => {
     const struct: string = "(c)vc";
-    const parsed = parseStruct(struct);
+    const parsed: Map<string, boolean> = parseStruct(struct);
 
-    const lt: letterType[] = [{ C: false },
-                              { V: true, },
-                              { C: true, }];
+    const outputMap = new Map()
+    outputMap.set("C", false)
+    outputMap.set("V", true)
+    outputMap.set("C", true)
 
     it("should parse the struct correctly", () => {
-        expect(parsed).toEqual(lt);
+        expect(parsed).toEqual(outputMap);
     })
 })

@@ -15,7 +15,9 @@ export default function generateWords(dto: bodyDto): string[] {
             word += genSyllable(consonants, vowels, exclusions, struct);
         }
 
-        word = applyRewrites(rewrites, word);
+        const mapRewrites = new Map(Object.entries(rewrites));
+
+        word = applyRewrites(mapRewrites, word);
 
         outputArr.push(word);
     }

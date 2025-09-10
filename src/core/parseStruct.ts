@@ -1,20 +1,16 @@
 
-export type letterType =  { [index: string]: boolean};
-
-export default function parseStruct(struct: string): letterType[] {
+export default function parseStruct(struct: string): Map<string, boolean> {
     struct = struct.toUpperCase();
     const letters: string[] = struct.split("");
 
-    const output: letterType[] = []
+    const output = new Map<string, boolean>();
 
     for (let i = 0; i < letters.length; i++) {
         if (letters[i] != ")" && letters[i] != "(") {
             if (letters[i-1] == "(" && letters [i+1] == ")" ) {
-                const lt: letterType = { [letters[i]]: false };
-                output.push(lt);
+                output.set(letters[i], false);
             } else {
-                const lt: letterType = { [letters[i]]: true };
-                output.push(lt);
+                output.set(letters[i], true);
             }
         }
     }

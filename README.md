@@ -29,8 +29,11 @@ bun run start
 ```
 
 # How to use
+runs in the port :8080, all endpoints prefixed with /api/v1/
 
-/generate
+
+**/generate**
+
 this endpoint generate a list of words based on the informations that you send, send a POST method request. here an example body:
 ```json
 {
@@ -48,7 +51,8 @@ this endpoint generate a list of words based on the informations that you send, 
 }
 ```
 
-/frequen
+**/frequen**
+
 this endpoint discover what is the most common phonemes on a text. send a POST method request, example body:
 ```json
 {

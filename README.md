@@ -29,7 +29,7 @@ bun run start
 ```
 
 # How to use
-runs in the port :8080, all endpoints prefixed with /api/v1/
+runs in the port :8080, all endpoints prefixed with /api/
 
 
 **/generate**

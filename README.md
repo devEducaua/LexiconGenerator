@@ -1,5 +1,9 @@
 # Why?
-This is api for conlangs (Construct Languages), Good words generators are rarely then I made my own.
+This is api for conlangs (Construct Languages), Good words generators are rarely then I made my own. I am extending this to be more than generate words.
+
+> [!WARNING]
+> this is still in development
+
 
 # How to build
 only two dependencies in this API: Bun and Hono
@@ -25,23 +29,30 @@ bun run start
 ```
 
 # How to use
-This api need's a request in the ```POST``` method with the Content: ```Application/json```.
-Send a body with an json with: the groups. the number of words, and the max number of syllables for word. syllables for exclude of the generation, and the structs of the syllables.
-ex: 
-```
+
+/generate
+this endpoint generate a list of words based on the informations that you send, send a POST method request. here an example body:
+```json
 {
     "groups": {
         "C": [ "p", "t", "k", "l", "m", "n", "s" ],
         "V": [ "a", "i", "u" ],
         "F": [ "m", "n" ]
     }, 
-    "structs": "V/CV/CVF/VF",
     "numberWords": 30,
     "maxLength": 4,
     "minLength": 1,
     "exclusions": [ "ti" ],
-    "rewrites": {
-        "aa": "a"
-    }
+    "structs": "CVF",
+    "rewrites": {}
+}
+```
+
+/frequen
+this endpoint discover what is the most common phonemes on a text. send a POST method request, example body:
+```json
+{
+    "phonemes": [ "o", "a", "e" ],
+    "text": "The quick brown fox jumps over the lazy dog"
 }
 ```

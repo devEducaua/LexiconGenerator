@@ -1,7 +1,18 @@
 import { lexiconDto } from "../dtos/lexiconDto";
 import generateSyllable from "./syllables";
-import applyRewrites from "./rewrites";
 
+function applyRewrites(rewrites: Map<string, string>, word: string) {
+    for (let i = 0; i < word.length -1; i++) {
+
+        for (const [key, value] of rewrites) {
+
+            if (word.slice(i, i + word.length) == key) {
+                word = word.replace(`${word[i]}${word[i+1]}`, value);
+            }
+        }
+    }
+    return word;
+}
 export default function generateWords(dto: lexiconDto): string[] {
     const outputArr: string[] = [];
     const { groups, numberWords, maxLength, minLength, exclusions, structs, rewrites } = dto;

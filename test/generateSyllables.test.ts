@@ -1,13 +1,13 @@
 import { describe, expect, it } from "bun:test";
-import generateSyllable from "../src/core/generateSyllables";
+import generateSyllable from "../src/lexicon/syllables";
 
 describe("generate syllables", () => {
-    const consonants = ['p'];
-    const vowels = ['a'];
+    const groups = { c: ['p'], v: ['a']}
+
     const exclusions = [];
     const struct = "CV";
 
     it("should generate the correct syllable", () => {
-        expect(generateSyllable(consonants, vowels, exclusions, struct)).toBe('pa');
+        expect(generateSyllable(groups, struct, exclusions)).toBe('pa');
     })
 })

@@ -1,13 +1,10 @@
 import { Hono } from "hono/tiny";
-import { cors } from "hono/cors";
+import { lexiconController, frequenController } from "./controller";
 
-import wordsController from "./web/wordsController";
+const app = new Hono().basePath("/api");
 
-const app = new Hono().basePath("/api");;
-
-app.use("*", cors());
-
-app.post('/', (c) => wordsController(c));
+app.post('/generate', (c) => lexiconController(c));
+app.post('/frequen', (c) => frequenController(c));
 
 export default {
     port: 8080,

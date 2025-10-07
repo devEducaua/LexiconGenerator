@@ -1,10 +1,10 @@
-import { bodyDto } from "../web/bodyDto";
-import genSyllable from "./generateSyllables";
+import { lexiconDto } from "../dtos/lexiconDto";
+import generateSyllable from "./syllables";
 import applyRewrites from "./rewrites";
 
-export default function generateWords(dto: bodyDto): string[] {
+export default function generateWords(dto: lexiconDto): string[] {
     const outputArr: string[] = [];
-    const { consonants, vowels, numberWords, maxLength, minLength, exclusions, struct, rewrites } = dto;
+    const { groups, numberWords, maxLength, minLength, exclusions, structs, rewrites } = dto;
 
     for (let i = 0; i < numberWords; i++) {
         const numSyllables: number = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
@@ -12,7 +12,7 @@ export default function generateWords(dto: bodyDto): string[] {
         let word: string = "";
 
         for (let j = 0; j < numSyllables; j++) {
-            word += genSyllable(consonants, vowels, exclusions, struct);
+            word += generateSyllable(groups, structs, exclusions);
         }
 
         const mapRewrites = new Map(Object.entries(rewrites));

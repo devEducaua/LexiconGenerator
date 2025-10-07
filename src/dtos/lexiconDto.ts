@@ -1,10 +1,9 @@
-export interface bodyDto {
-    consonants: string[];
-    vowels: string[];
+export interface lexiconDto {
+    groups: Record<string, string[]>;
     maxLength: number;
     minLength: number;
     numberWords: number;
     exclusions: string[];
-    struct: string;
+    structs: string;
     rewrites: Map<string, string>;
 }

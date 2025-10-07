@@ -1,15 +1,22 @@
 import  { describe, expect, it } from "bun:test";
-import generateWords from "../src/core/generateWords";
-import { bodyDto } from "../src/web/bodyDto";
+import generateWords from "../src/lexicon/generateWords";
+import { lexiconDto } from "../src/dtos/lexiconDto";
 
 describe("generate words", () => {
-    const consonants = ['p', 't', 'k'];
-    const vowels = ['a', 'i', 'u'];
+    const groups = { 
+        c: ['p', 't', 'k'],
+        v: ['a', 'i', 'u']
+    };
+    const structs = "CV";
+
     const numberWords = 10;
     const maxLength = 4;
+    const minLength = 1;
+
     const exclusions = ['pi'];
-    const struct = "CV";
-    const dto: bodyDto = { consonants, vowels, numberWords, maxLength, exclusions, struct };
+    const rewrites = new Map<string, string>;
+
+    const dto: lexiconDto = { groups, numberWords, maxLength, minLength, exclusions, structs, rewrites };
     const words = generateWords(dto);
 
     it("should generate the correct number of words", () => {
